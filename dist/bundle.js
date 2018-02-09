@@ -1,5 +1,9 @@
-const { createElement } = React
-const { render } = ReactDOM
+'use strict';
+
+var _React = React,
+    createElement = _React.createElement;
+var _ReactDOM = ReactDOM,
+    render = _ReactDOM.render;
 
 // const style = {
 //     backgroundColor: 'grey',
@@ -13,15 +17,14 @@ const { render } = ReactDOM
 //     'Init App'
 // )
 
-render(
-    <h1 id='title'
-        className='header'
-        style={{
+render(React.createElement(
+    'h1',
+    { id: 'title',
+        className: 'header',
+        style: {
             backgroundColor: 'grey',
             color: 'white',
             fontFamily: 'verdana'
-        }}>
-        Initial App
-    </h1>,
-    document.getElementById('react-container')
-)
+        } },
+    'Initial App'
+), document.getElementById('react-container'));

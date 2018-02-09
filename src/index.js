@@ -21,7 +21,7 @@ render(
             color: 'white',
             fontFamily: 'verdana'
         }}>
-        Initial App
+        Initial App 1
     </h1>,
     document.getElementById('react-container')
 )

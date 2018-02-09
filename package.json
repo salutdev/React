@@ -5,14 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "httpster -d ./dist -p 3000"
+    "start": "./node_modules/.bin/webpack-dev-server"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "6.26.0",
+    "babel-loader": "7.1.2",
     "babel-preset-latest": "6.24.1",
     "babel-preset-react": "6.24.1",
-    "babel-preset-stage-0": "6.24.1"
-  }
+    "babel-preset-stage-0": "6.24.1",
+    "webpack": "3.10.0",
+    "webpack-dev-server": "2.11.1"
+  },
+  "dependencies": {}
 }

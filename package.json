@@ -1,5 +1,5 @@
 {
-  "name": "react",
+  "name": "react-test-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -18,5 +18,8 @@
     "webpack": "3.10.0",
     "webpack-dev-server": "2.11.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react": "16.2.0",
+    "react-dom": "16.2.0"
+  }
 }

@@ -26,6 +26,29 @@ module.exports = {
                 }],
                 exclude: /node_modules/,
 
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {loader: "style-loader"},
+                    {loader: "css-loader"},
+                    {
+                        loader: "postcss-loader",
+                        options: {config: {path: './postcss.config.js'}}
+                    }
+                ]
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    {loader: "style-loader"},
+                    {loader: "css-loader"},
+                    {
+                        loader: "postcss-loader",
+                        options: {config: {path: './postcss.config.js'}}
+                    },
+                    {loader: "sass-loader"}
+                ]
             }
         ]
     }

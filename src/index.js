@@ -1,21 +1,11 @@
-const { createElement } = React
-const { render } = ReactDOM
-
-// const title = createElement(
-//     'h1',
-//     { id: 'title', className: 'header', style: style },
-//     'Init App'
-// )
+import React from 'react'
+import {render} from 'react-dom'
+import {hello, goodbye} from './lib'
 
 render(
-    <h1 id='title'
-        className='header'
-        style={{
-            backgroundColor: 'grey',
-            color: 'white',
-            fontFamily: 'verdana'
-        }}>
-        Initial App
-    </h1>,
+    <div>
+        {hello}
+        {goodbye}
+    </div>,
     document.getElementById('react-container')
 )

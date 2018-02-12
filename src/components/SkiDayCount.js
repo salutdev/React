@@ -1,8 +1,9 @@
 import React from 'react'
 import '../stylesheets/ui.scss'
+var createReactClass = require('create-react-class');
 
 
-export const SkiDayCount = React. ({
+export const SkiDayCount = createReactClass({
 //export class SkiDayCount extends React.Component {
     render() {
         return (
@@ -20,4 +21,5 @@ export const SkiDayCount = React. ({
         )
     }
 
-})
+}
+)

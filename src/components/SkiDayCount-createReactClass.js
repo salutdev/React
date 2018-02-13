@@ -1,4 +1,4 @@
-import React from 'react'
+//import React from 'react'
 import '../stylesheets/ui.scss'
 import Terrain from 'react-icons/lib/md/terrain'
 import SnowFlake from 'react-icons/lib/ti/weather-snow'
@@ -13,35 +13,40 @@ const calcGoalProgresss = (total, goal) => {
     return percentToDecimal(total/goal);
 }
 
-export const SkiDayCount = ({ total = 70, powder = 40, backcountry = 10, goal = 44 }) => (
+export const SkiDayCount = createReactClass( {
+    
+        getDefaultProps() {
+            return {
+                total: 50,
+                powder: 50,
+                backcountry: 35,
+                goal: 50
+            };
+        },
 
-            <div className='ski-day-count'>
+        render () {
+            return (<div className='ski-day-count'>
                 <div className='total-days'>
-                    <span>{total}</span>
+                    <span>{this.props.total}</span>
                         <Calendar />
                     <span>days</span>
                 </div>
                 <div className='powder-days'>
-                    <span>{powder}</span>
+                    <span>{this.props.powder}</span>
                         <SnowFlake />
                     <span>days</span>
                 </div>
                 <div className='backcountry-days'>
-                    <span>{backcountry}</span>
+                    <span>{this.props.backcountry}</span>
                         <Terrain />
                     <span>days</span>
                 </div>
                 <div>
                     <span>
-                        { calcGoalProgresss(total, goal)}
+                        { calcGoalProgresss(this.props.total, this.props.goal)}
                     </span>
                 </div>
             </div>
-)
-
-// SkiDayCount.defaultProps = {
-//     total: 50,
-//     powder: 50,
-//     backcountry: 35,
-//     goal: 62
-// }
+        )
+    }
+})

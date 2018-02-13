@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/webpack-dev-server"
+    "start": "./node_modules/.bin/webpack-dev-server",
+    "start2": "httpster -d ./src -p 3000"
   },
   "author": "",
   "license": "ISC",
@@ -32,6 +33,7 @@
     "create-react-class": "^15.6.3",
     "prop-types": "15.6.0",
     "react": "16.2.0",
-    "react-dom": "16.2.0"
+    "react-dom": "16.2.0",
+    "react-icons": "2.2.7"
   }
 }

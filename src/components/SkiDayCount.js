@@ -1,31 +1,43 @@
-import React from 'react'
+//import React from 'react'
 import '../stylesheets/ui.scss'
-var createReactClass = require('create-react-class');
+// import Terrain from 'react-icons/lib/md/terrain'
+// import SnowFlake from 'react-icons/lib/ti/weather-snow'
+// import Calendar from 'react-icons/lib/fa/calendar'
+//var createReactClass = require('create-react-class');
 
+const percentToDecimal = (decimal) => {
+    return ((decimal * 100) + '%');
+}
 
-export const SkiDayCount = createReactClass({
+const calcGoalProgresss = (total, goal) => {
+    return percentToDecimal(total/goal);
+}
+
+//export const SkiDayCount = createReactClass({
 //export class SkiDayCount extends React.Component {
-    render() {
-        return (
+export const SkiDayCount = ({ total, powder, backcountry, goal }) =>  (
             <div className='ski-day-count'>
                 <div className='total-days'>
-                    <span>{this.props.total}</span>
+                    <span>{total}</span>
+                    {/* <Calendar /> */}
                     <span>days</span>
                 </div>
                 <div className='powder-days'>
-                    <span>{this.props.powder}</span>
+                    <span>{powder}</span>
+                    {/* <SnowFlake /> */}
                     <span>days</span>
                 </div>
                 <div className='backcountry-days'>
-                    <span>{this.props.backcountry}</span>
+                    <span>{backcountry}</span>
+                    {/* <Terrain /> */}
                     <span>days</span>
                 </div>
                 <div>
-                    <span>{this.props.goal}</span>
+                    <span>
+                        { calcGoalProgresss(total, goal)}
+                    </span>
                 </div>
             </div>
         )
-    }
 
-}
-)
+//)

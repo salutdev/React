@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "assets";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 21);
+/******/ 	return __webpack_require__(__webpack_require__.s = 25);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -261,9 +261,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(22);
+  module.exports = __webpack_require__(26);
 } else {
-  module.exports = __webpack_require__(23);
+  module.exports = __webpack_require__(27);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -564,6 +564,41 @@ module.exports = warning;
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+    Symbol.for &&
+    Symbol.for('react.element')) ||
+    0xeac7;
+
+  var isValidElement = function(object) {
+    return typeof object === 'object' &&
+      object !== null &&
+      object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(45)(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(46)();
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -577,7 +612,7 @@ module.exports = warning;
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(4);
   var warning = __webpack_require__(6);
-  var ReactPropTypesSecret = __webpack_require__(8);
+  var ReactPropTypesSecret = __webpack_require__(9);
   var loggedTypeFailures = {};
 }
 
@@ -628,7 +663,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -647,7 +682,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 /*
@@ -729,7 +764,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -795,7 +830,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(37);
+var	fixUrls = __webpack_require__(41);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -1111,7 +1146,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1127,7 +1162,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(42);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -1179,7 +1214,7 @@ exports.default = IconBase;
 module.exports = exports['default'];
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1218,7 +1253,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1299,7 +1334,7 @@ module.exports = EventListener;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1341,7 +1376,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1412,7 +1447,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1427,7 +1462,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(26);
+var isTextNode = __webpack_require__(30);
 
 /*eslint-disable no-bitwise */
 
@@ -1455,7 +1490,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1485,7 +1520,79 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 18 */
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.SkiDayList = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _SkiDayRow = __webpack_require__(44);
+
+var _propTypes = __webpack_require__(7);
+
+var SkiDayList = exports.SkiDayList = function SkiDayList(_ref) {
+    var days = _ref.days;
+    return React.createElement(
+        'table',
+        null,
+        React.createElement(
+            'thead',
+            null,
+            React.createElement(
+                'tr',
+                null,
+                React.createElement(
+                    'th',
+                    null,
+                    'Date'
+                ),
+                React.createElement(
+                    'th',
+                    null,
+                    'Resort'
+                ),
+                React.createElement(
+                    'th',
+                    null,
+                    'Powder'
+                ),
+                React.createElement(
+                    'th',
+                    null,
+                    'Backcountry'
+                )
+            )
+        ),
+        React.createElement(
+            'tbody',
+            null,
+            days.map(function (day, i) {
+                return React.createElement(_SkiDayRow.SkiDayRow, _extends({ key: i
+                }, day));
+            })
+        )
+    );
+};
+
+SkiDayList.propTypes = {
+    days: function days(props) {
+        if (!Array.isArray(props.days)) {
+            return new Error("SkiDayList should be an array");
+        } else if (!props.days.length) {
+            return new Error("SkiDayList must have at least one record");
+        }
+    }
+};
+
+/***/ }),
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1501,7 +1608,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactIconBase = __webpack_require__(11);
+var _reactIconBase = __webpack_require__(12);
 
 var _reactIconBase2 = _interopRequireDefault(_reactIconBase);
 
@@ -1523,7 +1630,7 @@ exports.default = MdTerrain;
 module.exports = exports['default'];
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1539,7 +1646,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactIconBase = __webpack_require__(11);
+var _reactIconBase = __webpack_require__(12);
 
 var _reactIconBase2 = _interopRequireDefault(_reactIconBase);
 
@@ -1561,7 +1668,7 @@ exports.default = TiWeatherSnow;
 module.exports = exports['default'];
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1577,7 +1684,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactIconBase = __webpack_require__(11);
+var _reactIconBase = __webpack_require__(12);
 
 var _reactIconBase2 = _interopRequireDefault(_reactIconBase);
 
@@ -1599,7 +1706,166 @@ exports.default = FaCalendar;
 module.exports = exports['default'];
 
 /***/ }),
-/* 21 */
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.SkiDayCount = undefined;
+
+__webpack_require__(47);
+
+var _terrain = __webpack_require__(20);
+
+var _terrain2 = _interopRequireDefault(_terrain);
+
+var _weatherSnow = __webpack_require__(21);
+
+var _weatherSnow2 = _interopRequireDefault(_weatherSnow);
+
+var _calendar = __webpack_require__(22);
+
+var _calendar2 = _interopRequireDefault(_calendar);
+
+var _propTypes = __webpack_require__(7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var createReactClass = __webpack_require__(24); //import { react  } from 'react'
+
+
+var percentToDecimal = function percentToDecimal(decimal) {
+    return decimal * 100 + '%';
+};
+
+var calcGoalProgresss = function calcGoalProgresss(total, goal) {
+    return percentToDecimal(total / goal);
+};
+
+var SkiDayCount = exports.SkiDayCount = function SkiDayCount(_ref) {
+    var _ref$total = _ref.total,
+        total = _ref$total === undefined ? 80 : _ref$total,
+        _ref$powder = _ref.powder,
+        powder = _ref$powder === undefined ? 40 : _ref$powder,
+        _ref$backcountry = _ref.backcountry,
+        backcountry = _ref$backcountry === undefined ? 10 : _ref$backcountry,
+        _ref$goal = _ref.goal,
+        goal = _ref$goal === undefined ? 44 : _ref$goal;
+    return React.createElement(
+        'div',
+        { className: 'ski-day-count' },
+        React.createElement(
+            'div',
+            { className: 'total-days' },
+            React.createElement(
+                'span',
+                null,
+                total
+            ),
+            React.createElement(_calendar2.default, null),
+            React.createElement(
+                'span',
+                null,
+                'days'
+            )
+        ),
+        React.createElement(
+            'div',
+            { className: 'powder-days' },
+            React.createElement(
+                'span',
+                null,
+                powder
+            ),
+            React.createElement(_weatherSnow2.default, null),
+            React.createElement(
+                'span',
+                null,
+                'days'
+            )
+        ),
+        React.createElement(
+            'div',
+            { className: 'backcountry-days' },
+            React.createElement(
+                'span',
+                null,
+                backcountry
+            ),
+            React.createElement(_terrain2.default, null),
+            React.createElement(
+                'span',
+                null,
+                'days'
+            )
+        ),
+        React.createElement(
+            'div',
+            null,
+            React.createElement(
+                'span',
+                null,
+                calcGoalProgresss(total, goal)
+            )
+        )
+    );
+};
+
+SkiDayCount.defaultProps = {
+    total: 50,
+    powder: 50,
+    backcountry: 35,
+    goal: 62
+};
+
+SkiDayCount.propTypes = {
+    total: _propTypes.PropTypes.number.isRequired,
+    powder: _propTypes.PropTypes.number,
+    backcountry: _propTypes.PropTypes.number,
+    goal: _propTypes.PropTypes.number
+};
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var React = __webpack_require__(1);
+var factory = __webpack_require__(49);
+
+if (typeof React === 'undefined') {
+  throw Error(
+    'create-react-class could not find the React object. If you are using script tags, ' +
+      'make sure that React is being loaded before create-react-class.'
+  );
+}
+
+// Hack to grab NoopUpdateQueue from isomorphic React
+var ReactNoopUpdateQueue = new React.Component().updater;
+
+module.exports = factory(
+  React.Component,
+  React.isValidElement,
+  ReactNoopUpdateQueue
+);
+
+
+/***/ }),
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1609,50 +1875,34 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(24);
+var _reactDom = __webpack_require__(28);
 
-var _lib = __webpack_require__(33);
+var _lib = __webpack_require__(37);
 
-var _SkiDayList = __webpack_require__(40);
+var _SkiDayList = __webpack_require__(19);
 
-var _SkiDayCount = __webpack_require__(45);
+var _SkiDayCount = __webpack_require__(23);
+
+var _App = __webpack_require__(50);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-window.React = _react2.default;
 //import  { SkiDayCount }  from './components/SkiDayCount-createReactClass'
 //import  { SkiDayCount }  from './components/SkiDayCount-ES6'
-
-
-(0, _reactDom.render)(_react2.default.createElement(_SkiDayCount.SkiDayCount, null), document.getElementById('react-container'));
+window.React = _react2.default;
 
 // render(
 
-//     <SkiDayList days={[
-//         {
-//             resort: "Squaw Valley",
-//             date: new Date("1/1/2018"),
-//             powder: true,
-//             backcountry: false
-//         },
-//         {
-//             resort: "Kirkwood",
-//             date: new Date("12/20/2017"),
-//             powder: false,
-//             backcountry: false
-//         },
-//         {
-//             resort: "Mt Tallac",
-//             date: new Date("08/28/2016"),
-//             powder: false,
-//             backcountry: true
-//         }
-//     ]} />,
+//     <SkiDayCount />,
 //     document.getElementById('react-container')
 // )
 
+(0, _reactDom.render)(_react2.default.createElement(_App.App, null),
+// <SkiDayCount />,
+document.getElementById('react-container'));
+
 /***/ }),
-/* 22 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1680,7 +1930,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 23 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1706,7 +1956,7 @@ var emptyObject = __webpack_require__(5);
 var invariant = __webpack_require__(4);
 var warning = __webpack_require__(6);
 var emptyFunction = __webpack_require__(2);
-var checkPropTypes = __webpack_require__(7);
+var checkPropTypes = __webpack_require__(8);
 
 // TODO: this is special because it gets imported during build.
 
@@ -3045,7 +3295,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 24 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3083,15 +3333,15 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(25);
+  module.exports = __webpack_require__(29);
 } else {
-  module.exports = __webpack_require__(28);
+  module.exports = __webpack_require__(32);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 25 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3107,7 +3357,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1),l=__webpack_require__(12),B=__webpack_require__(3),C=__webpack_require__(2),ba=__webpack_require__(13),da=__webpack_require__(14),ea=__webpack_require__(15),fa=__webpack_require__(16),ia=__webpack_require__(17),D=__webpack_require__(5);
+var aa=__webpack_require__(1),l=__webpack_require__(13),B=__webpack_require__(3),C=__webpack_require__(2),ba=__webpack_require__(14),da=__webpack_require__(15),ea=__webpack_require__(16),fa=__webpack_require__(17),ia=__webpack_require__(18),D=__webpack_require__(5);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -3327,7 +3577,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 
 /***/ }),
-/* 26 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3342,7 +3592,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
  * @typechecks
  */
 
-var isNode = __webpack_require__(27);
+var isNode = __webpack_require__(31);
 
 /**
  * @param {*} object The object to check.
@@ -3355,7 +3605,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 27 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3383,7 +3633,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 28 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3407,18 +3657,18 @@ if (process.env.NODE_ENV !== "production") {
 var React = __webpack_require__(1);
 var invariant = __webpack_require__(4);
 var warning = __webpack_require__(6);
-var ExecutionEnvironment = __webpack_require__(12);
+var ExecutionEnvironment = __webpack_require__(13);
 var _assign = __webpack_require__(3);
 var emptyFunction = __webpack_require__(2);
-var EventListener = __webpack_require__(13);
-var getActiveElement = __webpack_require__(14);
-var shallowEqual = __webpack_require__(15);
-var containsNode = __webpack_require__(16);
-var focusNode = __webpack_require__(17);
+var EventListener = __webpack_require__(14);
+var getActiveElement = __webpack_require__(15);
+var shallowEqual = __webpack_require__(16);
+var containsNode = __webpack_require__(17);
+var focusNode = __webpack_require__(18);
 var emptyObject = __webpack_require__(5);
-var checkPropTypes = __webpack_require__(7);
-var hyphenateStyleName = __webpack_require__(29);
-var camelizeStyleName = __webpack_require__(31);
+var checkPropTypes = __webpack_require__(8);
+var hyphenateStyleName = __webpack_require__(33);
+var camelizeStyleName = __webpack_require__(35);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -18785,7 +19035,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 29 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18800,7 +19050,7 @@ module.exports = reactDom;
 
 
 
-var hyphenate = __webpack_require__(30);
+var hyphenate = __webpack_require__(34);
 
 var msPattern = /^ms-/;
 
@@ -18827,7 +19077,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 30 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18863,7 +19113,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 31 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18878,7 +19128,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(32);
+var camelize = __webpack_require__(36);
 
 var msPattern = /^-ms-/;
 
@@ -18906,7 +19156,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 32 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18941,7 +19191,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 33 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18956,13 +19206,13 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _titles = __webpack_require__(34);
+var _titles = __webpack_require__(38);
 
 var _titles2 = _interopRequireDefault(_titles);
 
-__webpack_require__(35);
+__webpack_require__(39);
 
-__webpack_require__(38);
+__webpack_require__(42);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18981,17 +19231,17 @@ var goodbye = exports.goodbye = _react2.default.createElement(
 );
 
 /***/ }),
-/* 34 */
+/* 38 */
 /***/ (function(module, exports) {
 
 module.exports = {"hello":"Bonjour!","goodbye":"Au Rvoir"}
 
 /***/ }),
-/* 35 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(36);
+var content = __webpack_require__(40);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -19005,7 +19255,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(10)(content, options);
+var update = __webpack_require__(11)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -19037,10 +19287,10 @@ if(false) {
 }
 
 /***/ }),
-/* 36 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(9)(false);
+exports = module.exports = __webpack_require__(10)(false);
 // imports
 
 
@@ -19051,7 +19301,7 @@ exports.push([module.i, ".hello {\r\n    background-color: black;\r\n    color: 
 
 
 /***/ }),
-/* 37 */
+/* 41 */
 /***/ (function(module, exports) {
 
 
@@ -19146,11 +19396,11 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 38 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(39);
+var content = __webpack_require__(43);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -19164,7 +19414,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(10)(content, options);
+var update = __webpack_require__(11)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -19196,10 +19446,10 @@ if(false) {
 }
 
 /***/ }),
-/* 39 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(9)(false);
+exports = module.exports = __webpack_require__(10)(false);
 // imports
 
 
@@ -19210,67 +19460,7 @@ exports.push([module.i, ".goodbye {\n  background-color: grey;\n  color: black; 
 
 
 /***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.SkiDayList = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _SkiDayRow = __webpack_require__(41);
-
-var SkiDayList = exports.SkiDayList = function SkiDayList(_ref) {
-    var days = _ref.days;
-    return React.createElement(
-        'table',
-        null,
-        React.createElement(
-            'thead',
-            null,
-            React.createElement(
-                'tr',
-                null,
-                React.createElement(
-                    'th',
-                    null,
-                    'Date'
-                ),
-                React.createElement(
-                    'th',
-                    null,
-                    'Resort'
-                ),
-                React.createElement(
-                    'th',
-                    null,
-                    'Powder'
-                ),
-                React.createElement(
-                    'th',
-                    null,
-                    'Backcountry'
-                )
-            )
-        ),
-        React.createElement(
-            'tbody',
-            null,
-            days.map(function (day, i) {
-                return React.createElement(_SkiDayRow.SkiDayRow, _extends({ key: i
-                }, day));
-            })
-        )
-    );
-};
-
-/***/ }),
-/* 41 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19281,17 +19471,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SkiDayRow = undefined;
 
-var _terrain = __webpack_require__(18);
+var _terrain = __webpack_require__(20);
 
 var _terrain2 = _interopRequireDefault(_terrain);
 
-var _weatherSnow = __webpack_require__(19);
+var _weatherSnow = __webpack_require__(21);
 
 var _weatherSnow2 = _interopRequireDefault(_weatherSnow);
 
-var _calendar = __webpack_require__(20);
+var _calendar = __webpack_require__(22);
 
 var _calendar2 = _interopRequireDefault(_calendar);
+
+var _propTypes = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19330,43 +19522,15 @@ var SkiDayRow = exports.SkiDayRow = function SkiDayRow(_ref) {
     );
 };
 
-/***/ }),
-/* 42 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (process.env.NODE_ENV !== 'production') {
-  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
-    Symbol.for &&
-    Symbol.for('react.element')) ||
-    0xeac7;
-
-  var isValidElement = function(object) {
-    return typeof object === 'object' &&
-      object !== null &&
-      object.$$typeof === REACT_ELEMENT_TYPE;
-  };
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(43)(isValidElement, throwOnDirectAccess);
-} else {
-  // By explicitly using `prop-types` you are opting into new production behavior.
-  // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(44)();
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+SkiDayRow.propTypes = {
+    resort: _propTypes.PropTypes.string.isRequired,
+    date: _propTypes.PropTypes.instanceOf(Date).isRequired,
+    powder: _propTypes.PropTypes.bool,
+    backcountry: _propTypes.PropTypes.bool
+};
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19384,8 +19548,8 @@ var invariant = __webpack_require__(4);
 var warning = __webpack_require__(6);
 var assign = __webpack_require__(3);
 
-var ReactPropTypesSecret = __webpack_require__(8);
-var checkPropTypes = __webpack_require__(7);
+var ReactPropTypesSecret = __webpack_require__(9);
+var checkPropTypes = __webpack_require__(8);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -19916,7 +20080,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19931,7 +20095,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 var emptyFunction = __webpack_require__(2);
 var invariant = __webpack_require__(4);
-var ReactPropTypesSecret = __webpack_require__(8);
+var ReactPropTypesSecret = __webpack_require__(9);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -19981,126 +20145,11 @@ module.exports = function() {
 
 
 /***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.SkiDayCount = undefined;
-
-__webpack_require__(46);
-
-var _terrain = __webpack_require__(18);
-
-var _terrain2 = _interopRequireDefault(_terrain);
-
-var _weatherSnow = __webpack_require__(19);
-
-var _weatherSnow2 = _interopRequireDefault(_weatherSnow);
-
-var _calendar = __webpack_require__(20);
-
-var _calendar2 = _interopRequireDefault(_calendar);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//import React from 'react'
-var createReactClass = __webpack_require__(48);
-
-var percentToDecimal = function percentToDecimal(decimal) {
-    return decimal * 100 + '%';
-};
-
-var calcGoalProgresss = function calcGoalProgresss(total, goal) {
-    return percentToDecimal(total / goal);
-};
-
-var SkiDayCount = exports.SkiDayCount = function SkiDayCount(_ref) {
-    var _ref$total = _ref.total,
-        total = _ref$total === undefined ? 70 : _ref$total,
-        _ref$powder = _ref.powder,
-        powder = _ref$powder === undefined ? 40 : _ref$powder,
-        _ref$backcountry = _ref.backcountry,
-        backcountry = _ref$backcountry === undefined ? 10 : _ref$backcountry,
-        _ref$goal = _ref.goal,
-        goal = _ref$goal === undefined ? 44 : _ref$goal;
-    return React.createElement(
-        'div',
-        { className: 'ski-day-count' },
-        React.createElement(
-            'div',
-            { className: 'total-days' },
-            React.createElement(
-                'span',
-                null,
-                total
-            ),
-            React.createElement(_calendar2.default, null),
-            React.createElement(
-                'span',
-                null,
-                'days'
-            )
-        ),
-        React.createElement(
-            'div',
-            { className: 'powder-days' },
-            React.createElement(
-                'span',
-                null,
-                powder
-            ),
-            React.createElement(_weatherSnow2.default, null),
-            React.createElement(
-                'span',
-                null,
-                'days'
-            )
-        ),
-        React.createElement(
-            'div',
-            { className: 'backcountry-days' },
-            React.createElement(
-                'span',
-                null,
-                backcountry
-            ),
-            React.createElement(_terrain2.default, null),
-            React.createElement(
-                'span',
-                null,
-                'days'
-            )
-        ),
-        React.createElement(
-            'div',
-            null,
-            React.createElement(
-                'span',
-                null,
-                calcGoalProgresss(total, goal)
-            )
-        )
-    );
-};
-
-// SkiDayCount.defaultProps = {
-//     total: 50,
-//     powder: 50,
-//     backcountry: 35,
-//     goal: 62
-// }
-
-/***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(47);
+var content = __webpack_require__(48);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -20114,7 +20163,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(10)(content, options);
+var update = __webpack_require__(11)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -20146,10 +20195,10 @@ if(false) {
 }
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(9)(false);
+exports = module.exports = __webpack_require__(10)(false);
 // imports
 
 
@@ -20157,41 +20206,6 @@ exports = module.exports = __webpack_require__(9)(false);
 exports.push([module.i, "nav.menu {\n  background-color: black;\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  width: calc(100% - 1em);\n  font-size: 4em;\n  padding: .5em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n  nav.menu a {\n    color: #d3d5e3; }\n\ndiv.goal-progress {\n  width: 95%;\n  margin: 0 2.5%;\n  font-size: 2em;\n  position: absolute;\n  bottom: 5em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-family: verdana;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  text-shadow: 2px 2px 10px #d3d5e3; }\n  div.goal-progress progress {\n    -ms-flex-preferred-size: 66%;\n        flex-basis: 66%;\n    background-color: black;\n    height: .5em;\n    position: relative;\n    top: 17px; }\n  div.goal-progress input {\n    background: none;\n    border: none;\n    position: relative;\n    width: 2em;\n    font-size: 1em;\n    padding: 0;\n    left: 9px;\n    outline: none;\n    text-shadow: 2px 2px 10px #d3d5e3; }\n  div.goal-progress button {\n    font-size: .75em;\n    padding: .25em;\n    background-color: green;\n    color: white; }\n    div.goal-progress button:disabled {\n      background-color: lightgrey;\n      color: #bababa; }\n\nprogress::-webkit-progress-bar {\n  background-color: black; }\n\nprogress::-webkit-progress-value {\n  background-color: #8a2a2d; }\n\n@-moz-document url-prefix() {\n  progress {\n    display: none; } }\n\ndiv.ski-day-count {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  font-size: 3em;\n  height: calc(100% - 3em); }\n  div.ski-day-count > div {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n    div.ski-day-count > div.total-days {\n      -ms-flex-preferred-size: 100%;\n          flex-basis: 100%;\n      font-size: 2em; }\n      div.ski-day-count > div.total-days span, div.ski-day-count > div.total-days svg {\n        height: 200px; }\n    div.ski-day-count > div:not(.total-days) {\n      -ms-flex-preferred-size: 50%;\n          flex-basis: 50%; }\n    div.ski-day-count > div span, div.ski-day-count > div svg {\n      background-color: white;\n      height: 100px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center; }\n      div.ski-day-count > div span:first-child, div.ski-day-count > div svg:first-child {\n        border-radius: 25px 0 0 25px;\n        padding-left: 15px; }\n      div.ski-day-count > div span:last-child, div.ski-day-count > div svg:last-child {\n        border-radius: 0 25px 25px 0;\n        font-size: .5em;\n        padding-right: 15px; }\n\ndiv.ski-day-list {\n  height: calc(100% - 13em);\n  overflow-y: scroll; }\n  div.ski-day-list table {\n    width: 100%;\n    background-color: rgba(255, 255, 255, .9);\n    font-family: verdana, sans-serif;\n    font-size: 1.5em;\n    text-align: center; }\n    div.ski-day-list table caption {\n      background-color: white;\n      background-color: rgba(255, 255, 255, .9);\n      color: #8f2e32; }\n    div.ski-day-list table td {\n      padding: .2em; }\n    div.ski-day-list table a {\n      margin: 15px; }\n\ndiv.show-errors {\n  width: 100%; }\n  div.show-errors div {\n    position: absolute;\n    width: 100%;\n    text-align: center;\n    top: 0;\n    background-color: red;\n    color: white;\n    font-family: verdana, sans-serif;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; }\n    div.show-errors div svg {\n      font-size: 2em;\n      position: relative;\n      top: 9px;\n      right: 9px; }\n\nform.add-day {\n  font-family: Verdana, sans-serif;\n  width: 70%;\n  margin-left: 15%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  height: calc(100% - 12em); }\n  form.add-day > label,\n  form.add-day div {\n    margin: 1em 0; }\n  form.add-day label {\n    font-size: 1.5em;\n    text-shadow: 3px 3px 10px #d3d5e3;\n    height: 10px;\n    font-weight: bold; }\n  form.add-day input[type=\"text\"],\n  form.add-day input[type=\"date\"] {\n    font-size: 1.5em;\n    padding: .25em;\n    border-radius: .2em;\n    outline: none;\n    min-height: 36px; }\n  form.add-day input[type=\"checkbox\"] {\n    -webkit-transform: scale(2);\n            transform: scale(2);\n    margin: 0;\n    padding: 0;\n    margin-right: 2em; }\n  form.add-day div > label {\n    position: relative;\n    top: 2px; }\n  form.add-day .autocomplete {\n    position: relative; }\n    form.add-day .autocomplete input {\n      width: calc(100% - 0.75em); }\n    form.add-day .autocomplete span {\n      position: absolute;\n      top: 5px;\n      right: 10px;\n      font-size: 2em; }\n    form.add-day .autocomplete .suggestions {\n      position: absolute;\n      top: 2em;\n      left: 0;\n      width: auto;\n      height: auto;\n      max-height: 200px;\n      background-color: white;\n      overflow-y: scroll;\n      z-index: 3; }\n      form.add-day .autocomplete .suggestions p {\n        padding: 1em;\n        margin: 0; }\n        form.add-day .autocomplete .suggestions p:hover {\n          background-color: yellow; }\n      form.add-day .autocomplete .suggestions:empty {\n        display: none; }\n  form.add-day button {\n    margin: auto;\n    width: 100%;\n    font-size: 2em;\n    background-color: #8a2a2d;\n    font-weight: bold;\n    color: #d3d5e3;\n    padding: 5px; }\n", ""]);
 
 // exports
-
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-var React = __webpack_require__(1);
-var factory = __webpack_require__(49);
-
-if (typeof React === 'undefined') {
-  throw Error(
-    'create-react-class could not find the React object. If you are using script tags, ' +
-      'make sure that React is being loaded before create-react-class.'
-  );
-}
-
-// Hack to grab NoopUpdateQueue from isomorphic React
-var ReactNoopUpdateQueue = new React.Component().updater;
-
-module.exports = factory(
-  React.Component,
-  React.isValidElement,
-  ReactNoopUpdateQueue
-);
 
 
 /***/ }),
@@ -21127,6 +21141,101 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
 module.exports = factory;
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.App = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _SkiDayList = __webpack_require__(19);
+
+var _SkiDayCount = __webpack_require__(23);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var createReactClass = __webpack_require__(24);
+
+var App = exports.App = function (_React$Component) {
+    _inherits(App, _React$Component);
+
+    //export const App = createReactClass({
+
+    function App(props) {
+        _classCallCheck(this, App);
+
+        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+        _this.state = {
+            allSkiDays: [{
+                resort: "Squaw Valley",
+                date: new Date("1/1/2018"),
+                powder: true,
+                backcountry: false
+            }, {
+                resort: "Kirkwood",
+                date: new Date("12/20/2017"),
+                powder: false,
+                backcountry: false
+            }, {
+                resort: "Mt Tallac",
+                date: new Date("08/28/2016"),
+                powder: false,
+                backcountry: true
+            }]
+        };
+        return _this;
+    }
+
+    _createClass(App, [{
+        key: 'getInitialState',
+        value: function getInitialState() {
+            return {};
+        }
+    }, {
+        key: 'countDays',
+        value: function countDays(filter) {
+            var allSkiDays = this.state.allSkiDays;
+
+            return allSkiDays.filter(function (day) {
+                return filter ? day[filter] : day;
+            }).length;
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'app' },
+                _react2.default.createElement(_SkiDayList.SkiDayList, { days: this.state.allSkiDays }),
+                _react2.default.createElement(_SkiDayCount.SkiDayCount, { total: this.countDays(),
+                    backcountry: this.countDays("backcountry"),
+                    powder: this.countDays("powder") })
+            );
+        }
+    }]);
+
+    return App;
+}(_react2.default.Component);
+//)
 
 /***/ })
 /******/ ]);

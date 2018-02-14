@@ -4,15 +4,13 @@ import  { SkiDayCount }  from './SkiDayCount'
 
 var createReactClass = require('create-react-class');
 
-//export class App extends React.Component {
-export const App = createReactClass({
+export class App extends React.Component {
+//export const App = createReactClass({
 
-    // constructor() {
-    //     super();
-    // }
-    getInitialState() {
-        return ({
-            allSkiDays: [
+    constructor(props) {
+        super(props);
+        this.state = {
+            allSkiDays:  [
                 {
                     resort: "Squaw Valley",
                     date: new Date("1/1/2018"),
@@ -32,13 +30,13 @@ export const App = createReactClass({
                     backcountry: true
                 }
             ]
-        })
-    },
+        }
+    }
 
     countDays(filter) {
         const { allSkiDays } = this.state;
         return allSkiDays.filter((day) => filter ? day[filter] : day).length
-    },
+    }
 
     render() {
         return (
@@ -51,4 +49,4 @@ export const App = createReactClass({
         )
     }
 }
-)
+//)

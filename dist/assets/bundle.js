@@ -1620,6 +1620,9 @@ var _SkiDayCount = __webpack_require__(45);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.React = _react2.default;
+//import  { SkiDayCount }  from './components/SkiDayCount-createReactClass'
+//import  { SkiDayCount }  from './components/SkiDayCount-ES6'
+
 
 (0, _reactDom.render)(_react2.default.createElement(_SkiDayCount.SkiDayCount, null), document.getElementById('react-container'));
 
@@ -20016,82 +20019,81 @@ var calcGoalProgresss = function calcGoalProgresss(total, goal) {
     return percentToDecimal(total / goal);
 };
 
-var SkiDayCount = exports.SkiDayCount = createReactClass({
-    displayName: 'SkiDayCount',
-
-    //export class SkiDayCount extends React.Component {
-    //export const SkiDayCount = ({ total, powder, backcountry, goal }) =>  (
-
-    getDefaultProps: function getDefaultProps() {
-        return {
-            total: 50,
-            powder: 50,
-            backcountry: 15,
-            goal: 50
-        };
-    },
-    render: function render() {
-        return;
+var SkiDayCount = exports.SkiDayCount = function SkiDayCount(_ref) {
+    var _ref$total = _ref.total,
+        total = _ref$total === undefined ? 70 : _ref$total,
+        _ref$powder = _ref.powder,
+        powder = _ref$powder === undefined ? 40 : _ref$powder,
+        _ref$backcountry = _ref.backcountry,
+        backcountry = _ref$backcountry === undefined ? 10 : _ref$backcountry,
+        _ref$goal = _ref.goal,
+        goal = _ref$goal === undefined ? 44 : _ref$goal;
+    return React.createElement(
+        'div',
+        { className: 'ski-day-count' },
         React.createElement(
             'div',
-            { className: 'ski-day-count' },
+            { className: 'total-days' },
             React.createElement(
-                'div',
-                { className: 'total-days' },
-                React.createElement(
-                    'span',
-                    null,
-                    total
-                ),
-                React.createElement(_calendar2.default, null),
-                React.createElement(
-                    'span',
-                    null,
-                    'days'
-                )
-            ),
-            React.createElement(
-                'div',
-                { className: 'powder-days' },
-                React.createElement(
-                    'span',
-                    null,
-                    powder
-                ),
-                React.createElement(_weatherSnow2.default, null),
-                React.createElement(
-                    'span',
-                    null,
-                    'days'
-                )
-            ),
-            React.createElement(
-                'div',
-                { className: 'backcountry-days' },
-                React.createElement(
-                    'span',
-                    null,
-                    backcountry
-                ),
-                React.createElement(_terrain2.default, null),
-                React.createElement(
-                    'span',
-                    null,
-                    'days'
-                )
-            ),
-            React.createElement(
-                'div',
+                'span',
                 null,
-                React.createElement(
-                    'span',
-                    null,
-                    calcGoalProgresss(total, goal)
-                )
+                total
+            ),
+            React.createElement(_calendar2.default, null),
+            React.createElement(
+                'span',
+                null,
+                'days'
             )
-        );
-    }
-});
+        ),
+        React.createElement(
+            'div',
+            { className: 'powder-days' },
+            React.createElement(
+                'span',
+                null,
+                powder
+            ),
+            React.createElement(_weatherSnow2.default, null),
+            React.createElement(
+                'span',
+                null,
+                'days'
+            )
+        ),
+        React.createElement(
+            'div',
+            { className: 'backcountry-days' },
+            React.createElement(
+                'span',
+                null,
+                backcountry
+            ),
+            React.createElement(_terrain2.default, null),
+            React.createElement(
+                'span',
+                null,
+                'days'
+            )
+        ),
+        React.createElement(
+            'div',
+            null,
+            React.createElement(
+                'span',
+                null,
+                calcGoalProgresss(total, goal)
+            )
+        )
+    );
+};
+
+// SkiDayCount.defaultProps = {
+//     total: 50,
+//     powder: 50,
+//     backcountry: 35,
+//     goal: 62
+// }
 
 /***/ }),
 /* 46 */

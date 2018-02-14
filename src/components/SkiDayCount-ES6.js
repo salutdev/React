@@ -3,6 +3,8 @@ import '../stylesheets/ui.scss'
 import Terrain from 'react-icons/lib/md/terrain'
 import SnowFlake from 'react-icons/lib/ti/weather-snow'
 import Calendar from 'react-icons/lib/fa/calendar'
+import PropTypes from 'prop-types'
+
 var createReactClass = require('create-react-class');
 
 const percentToDecimal = (decimal) => {
@@ -49,4 +51,10 @@ SkiDayCount.defaultProps = {
     powder: 50,
     backcountry: 35,
     goal: 70
+}
+
+SkiDayCount.propTypes = {
+    total: PropTypes.number.isRequired,
+    powder: PropTypes.number,
+    backcountry: PropTypes.number
 }

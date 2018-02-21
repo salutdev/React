@@ -2413,6 +2413,7 @@ var SkiDayList = exports.SkiDayList = function SkiDayList(_ref) {
     var filteredDays = !filter || !filter.match(/powder|backcountry/) ? days : days.filter(function (day) {
         return day[filter];
     });
+    //const filteredDays = days.filter(day => day[filter]);
     return React.createElement(
         'div',
         { className: 'ski-day-list' },
@@ -3350,8 +3351,8 @@ window.React = _react2.default;
         _reactRouterDom.Switch,
         null,
         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _App.App }),
-        _react2.default.createElement(_reactRouterDom.Route, { path: '/list-days', component: _App.App }),
-        _react2.default.createElement(_reactRouterDom.Route, { path: '/list-days/:filter', component: _App.App }),
+        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/list-days', component: _App.App }),
+        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/list-days/:filter', component: _App.App }),
         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/add-day', component: _App.App }),
         _react2.default.createElement(_reactRouterDom.Route, { component: _Whoops.Whoops404 })
     )
@@ -25729,7 +25730,6 @@ var App = exports.App = function (_React$Component) {
     return App;
 }(_react2.default.Component);
 //)
-//filter={ this.props.params.filter}
 
 /***/ }),
 /* 97 */
@@ -25764,17 +25764,17 @@ var Menu = exports.Menu = function Menu() {
         'nav',
         { className: 'menu' },
         React.createElement(
-            _reactRouterDom.Link,
+            _reactRouterDom.NavLink,
             { to: '/', activeClassName: 'selected' },
             React.createElement(_home2.default, null)
         ),
         React.createElement(
-            _reactRouterDom.Link,
+            _reactRouterDom.NavLink,
             { to: '/add-day', activeClassName: 'selected' },
             React.createElement(_calendarPlusO2.default, null)
         ),
         React.createElement(
-            _reactRouterDom.Link,
+            _reactRouterDom.NavLink,
             { to: '/list-days', activeClassName: 'selected' },
             React.createElement(_table2.default, null)
         )

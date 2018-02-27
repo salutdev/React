@@ -1,3 +1,5 @@
+import './stylesheets/ui.scss'
+import './stylesheets/index.scss'
 import React from 'react'
 import { render } from 'react-dom'
 import { hello, goodbye } from './lib'
@@ -10,6 +12,7 @@ import { App } from './components/App'
 import { HashRouter, Route, Link, Switch } from 'react-router-dom'
 import { Whoops404 } from './components/Whoops404'
 import { AddDayForm } from './components/AddDayFormStateless';
+
 
 window.React = React
 

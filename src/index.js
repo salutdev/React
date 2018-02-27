@@ -9,7 +9,7 @@ import { App } from './components/App'
 //import { Router, Route, hashHistory } from 'react-router'
 import { HashRouter, Route, Link, Switch } from 'react-router-dom'
 import { Whoops404 } from './components/Whoops404'
-import { AddDayForm } from './components/AddDayForm';
+import { AddDayForm } from './components/AddDayFormStateless';
 
 window.React = React
 

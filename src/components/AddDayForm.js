@@ -1,7 +1,3 @@
-// export const AddDayForm = () => (
-//     <h1>Add a day</h1>
-// )
-
 import  React from 'react'
 import { PropTypes } from 'prop-types'
 

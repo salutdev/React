@@ -1,7 +1,7 @@
 import  React from 'react'
 import  { SkiDayList }  from './SkiDayList'
 import  { SkiDayCount }  from './SkiDayCount'
-import { AddDayForm } from './AddDayForm'
+import { AddDayForm } from './AddDayFormStateless'
 import { Menu } from './Menu'
 
 var createReactClass = require('create-react-class');
@@ -15,24 +15,34 @@ export class App extends React.Component {
             allSkiDays:  [
                 {
                     resort: "Squaw Valley",
-                    date: new Date("1/1/2018"),
+                    date: "1/1/2018",
                     powder: true,
                     backcountry: false
                 },
-                {
-                    resort: "Kirkwood",
-                    date: new Date("12/20/2017"),
-                    powder: false,
-                    backcountry: false
-                },
-                {
-                    resort: "Mt Tallac",
-                    date: new Date("08/28/2016"),
-                    powder: false,
-                    backcountry: true
-                }
+                // {
+                //     resort: "Kirkwood",
+                //     date: new Date("12/20/2017"),
+                //     powder: false,
+                //     backcountry: false
+                // },
+                // {
+                //     resort: "Mt Tallac",
+                //     date: new Date("08/28/2016"),
+                //     powder: false,
+                //     backcountry: true
+                // }
             ]
         }
+        this.addDay = this.addDay.bind(this);
+    }
+
+    addDay(newDay) {
+        this.setState({
+            allSkiDays: [
+                ...this.state.allSkiDays,
+                newDay
+            ]
+        });
     }
 
     countDays(filter) {
@@ -53,7 +63,7 @@ export class App extends React.Component {
                     :
             
                     (this.props.location.pathname === "/add-day") ?
-                    <AddDayForm /> :
+                    <AddDayForm onNewDay={this.addDay}/> :
                     <SkiDayList days={this.state.allSkiDays }  filter={ this.props.match.params.filter} />
             }
                 

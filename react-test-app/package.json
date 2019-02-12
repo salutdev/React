@@ -1,0 +1,42 @@
+{
+  "name": "react-test-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/webpack-dev-server",
+    "start2": "httpster -d ./src -p 3000"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-loader": "7.1.2",
+    "babel-preset-latest": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-0": "6.24.1",
+    "css-loader": "0.28.9",
+    "cssnano": "3.10.0",
+    "json-loader": "0.5.7",
+    "node-sass": "4.7.2",
+    "postcss-cssnext": "3.1.0",
+    "postcss-import": "11.0.0",
+    "postcss-loader": "2.1.0",
+    "sass-loader": "6.0.6",
+    "style-loader": "0.20.1",
+    "sugarss": "1.0.1",
+    "webpack": "3.10.0",
+    "webpack-dev-server": "2.11.1"
+  },
+  "dependencies": {
+    "create-react-class": "^15.6.3",
+    "isomorphic-fetch": "2.2.1",
+    "prop-types": "15.6.0",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-icons": "2.2.7",
+    "react-router": "4.2.0",
+    "react-router-dom": "4.2.2"
+  }
+}

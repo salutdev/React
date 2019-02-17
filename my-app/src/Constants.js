@@ -1,0 +1,2 @@
+export const INCREMENT = 'INCREMENT'
+export const INCREASE_CLICKS = 'INCREASE_CLICKS'

@@ -1,10 +1,11 @@
 import {combineReducers} from 'redux'
 import counterReducer from './counter'
-import boardReducer from './boardReducer'
-import turnReducer from './turnReducer'
+import boardStateReducer from './boardStateReducer'
+//import turnReducer from './turnReducer'
 
 export default combineReducers({
     count: counterReducer,
-    board: boardReducer,
-    turn: turnReducer
+    boardState: boardStateReducer,
+    //board: boardReducer,
+    //turn: turnReducer
 })

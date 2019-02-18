@@ -1,4 +1,4 @@
-import {INCREMENT, INCREASE_CLICKS} from '../Constants'
+import {INCREMENT, MAKE_MOVE} from '../Constants'
 
 export function increment() {
     return {
@@ -6,9 +6,9 @@ export function increment() {
     }
 }
 
-export function moveAC(x, y, turn) {
+export function moveAC(x, y) {
     return {
-        type: INCREASE_CLICKS,
-        payload: { x, y, turn }
+        type: MAKE_MOVE,
+        payload: { x, y }
     }
 }

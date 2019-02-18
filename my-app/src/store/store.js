@@ -6,6 +6,6 @@ const enhancer = applyMiddleware(sign)
 
 const store = createStore(reducer, {}, enhancer)
 
-window.store = store
+//window.store = store
 
 export default store

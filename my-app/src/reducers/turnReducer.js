@@ -1,11 +1,11 @@
 
-import {INCREASE_CLICKS} from '../Constants'
+import { MAKE_MOVE } from '../Constants'
 
 export default (turn = 1, action) => {
     const {type, payload} = action
     let newBoard;
     switch(type) {  
-        case INCREASE_CLICKS: 
+        case MAKE_MOVE: 
         return turn == 1 ? -1 : 1
     }
 

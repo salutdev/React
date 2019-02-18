@@ -60,7 +60,7 @@ class Board extends Component {
     }
 
     handleClick = (evt) => {
-        this.props.makeMove(evt.nativeEvent.layerX, evt.nativeEvent.layerY, this.props.turn)
+        this.props.makeMove(evt.nativeEvent.layerX, evt.nativeEvent.layerY)
     }
 
     render() {
@@ -72,7 +72,7 @@ class Board extends Component {
 }
 
 export const BoardDec = connect((state) => {
-        return { board: state.board, turn: state.turn }
+        return { board: state.boardState.board }
     },
     { makeMove: moveAC }
 )(Board)

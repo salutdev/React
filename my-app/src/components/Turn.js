@@ -7,10 +7,10 @@ class Turn extends Component {
     }
 
     render() {
-        return <div>{this.props.turn == 1 ? 'X' : '0'}</div>
+        return <h2>{this.props.turn == 1 ? 'X' : '0'}</h2>
     }
 }
 
 export default connect(
-    (state) => ({ turn: state.turn })
+    (state) => ({ turn: state.boardState.turn })
 )(Turn)

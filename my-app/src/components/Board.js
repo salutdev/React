@@ -1,15 +1,10 @@
 import React, { Component } from 'react'
 import '../styles/Board.css'
-import {connect} from 'react-redux'
-import {moveAC} from '../AC/index'
-
+import { connect } from 'react-redux'
+import { moveAC } from '../AC/index'
+import { BOARD_SIZE, BOARD_WIDTH } from '../Constants'
 
 class Board extends Component {
-
-    constructor(props) {
-        super(props)
-        //this.state = {a: 0}
-    }
 
     componentDidMount() {
         console.log('componentDidMount')
@@ -33,11 +28,17 @@ class Board extends Component {
         ctx.strokeStyle = "#0000FF"
         ctx.lineWidth = 2
 
-        for (let i = 1; i <= 301; i += 100)
+        const cellWidth = this.getCellWidth()
+
+        for (let i = 1; i <= BOARD_WIDTH + 1; i += cellWidth)
         {
-            this.drawLine(i, 0, i, 300, ctx)
-            this.drawLine(0, i, 300, i, ctx)
+            this.drawLine(i, 0, i, BOARD_WIDTH, ctx)
+            this.drawLine(0, i, BOARD_WIDTH, i, ctx)
         }
+    }
+
+    getCellWidth() {
+        return BOARD_WIDTH / BOARD_SIZE
     }
 
     drawLine(x1, y1 , x2, y2, ctx) {
@@ -47,13 +48,16 @@ class Board extends Component {
     }
 
     fillMoves(ctx) {
-        ctx.font = "30px Arial"
-        for (let i = 0; i < 3; i++) {
-            for (let j = 0; j < 3; j++) {
-                if (this.props.board[i][j] == 1) {
-                    ctx.fillText('X', j*100 + 40, i*100 + 65)
-                } else if (this.props.board[i][j] == -1) {
-                    ctx.fillText('0', j*100 + 40, i*100 + 65)
+        const cellWidth = this.getCellWidth()
+
+        ctx.font = cellWidth/3 + "px Arial"
+
+        for (let i = 0; i < BOARD_SIZE; i++) {
+            for (let j = 0; j < BOARD_SIZE; j++) {
+                if (this.props.board[i][j] === 1) {
+                    ctx.fillText('X', j*cellWidth + cellWidth * 2/5, i*cellWidth + cellWidth * 65/100)
+                } else if (this.props.board[i][j] === -1) {
+                    ctx.fillText('0', j*cellWidth + cellWidth * 2/5, i*cellWidth + cellWidth * 65/100)
                 }
             }
         }
@@ -66,7 +70,7 @@ class Board extends Component {
     render() {
         console.log('render')
         return(
-            <canvas onClick={ this.handleClick } id="myCanvas" width="302px" height="302px" className=""></canvas>
+            <canvas onClick={ this.handleClick } id="myCanvas" width={(BOARD_WIDTH + 2) + "px"} height={(BOARD_WIDTH + 2) + "px"} className=""></canvas>
         )
     }
 }

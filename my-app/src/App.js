@@ -3,8 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import store from './store/store'
 import Counter from './components/Counter'
-import {Provider} from 'react-redux'
-import { Article } from './components/Article'
+import { Provider } from 'react-redux'
 import { BoardDec as Board } from './components/Board'
 import Turn from './components/Turn'
 

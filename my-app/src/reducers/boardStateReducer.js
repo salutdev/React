@@ -1,35 +1,44 @@
-import { MAKE_MOVE } from '../Constants'
+import { MAKE_MOVE, BOARD_SIZE, BOARD_WIDTH} from '../Constants'
 
-export default (boardState = { board: [... new Array(3)].map(e => new Array(3).fill(0)), turn: 1 }, action) => {
+export default (boardState, action) => {
     const {type, payload} = action
-    switch(type) {  
-        case MAKE_MOVE: 
-        return getNewBoardState(boardState, payload)
-    }
+    boardState = boardState || { board: [...new Array(BOARD_SIZE)].map(e => new Array(BOARD_SIZE).fill(0)), turn: 1, won: 0 }
 
-    return boardState
+    switch(type) {  
+        case MAKE_MOVE: return getNewBoardState(boardState, payload)
+        default: return boardState
+    }
 }
 
 function getNewBoardState(boardState, payload) {
     const {x, y} = payload
     let newTurn = boardState.turn
 
-    const arX = parseInt(x / 100) 
-    const arY = parseInt(y / 100) 
+    const cellWidth = BOARD_WIDTH / BOARD_SIZE
 
-    if (boardState.board[arY][arX] == 0) {
-        const newBoard = [... new Array(3)].map(e => new Array(3).fill(0))
-        for (let i = 0; i < 3; i++) {
-            for (let j = 0; j < 3; j++) {
+    const arX = parseInt(x / cellWidth) 
+    const arY = parseInt(y / cellWidth) 
+
+    if (boardState.board[arY][arX] === 0) {
+        const newBoard = [...Array(BOARD_SIZE)].map(e => new Array(BOARD_SIZE).fill(0))
+        for (let i = 0; i < BOARD_SIZE; i++) {
+            for (let j = 0; j < BOARD_SIZE; j++) {
                 newBoard[i][j] = boardState.board[i][j];
             }
         }
 
         newBoard[arY][arX] = boardState.turn
-        newTurn = boardState.turn == 1 ? -1 : 1
+        newTurn = boardState.turn === 1 ? -1 : 1
 
-        console.log(newBoard, arX, ' ', arY)
-        return { board: newBoard, turn: newTurn}
+        const won = whoWonGame(newBoard, arX, arY)
+
+        return { board: newBoard, turn: newTurn, won }
     }
     return boardState
+}
+
+function whoWonGame(newBoard, arX, arY) {
+
+
+
 }

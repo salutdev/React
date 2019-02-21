@@ -2,7 +2,7 @@ import { MAKE_MOVE, BOARD_SIZE, BOARD_WIDTH} from '../Constants'
 
 export default (boardState, action) => {
     const {type, payload} = action
-    boardState = boardState || { board: [...new Array(BOARD_SIZE)].map(e => new Array(BOARD_SIZE).fill(0)), turn: 1, won: 0 }
+    boardState = boardState || { board: [...new Array(BOARD_SIZE)].map(e => new Array(BOARD_SIZE).fill(0)), turn: 1, result: null }
 
     switch(type) {  
         case MAKE_MOVE: return getNewBoardState(boardState, payload)
@@ -28,17 +28,47 @@ function getNewBoardState(boardState, payload) {
         }
 
         newBoard[arY][arX] = boardState.turn
+
+        const newResult = whoWonGame(newBoard, arX, arY)
+        if (newResult) {
+            newResult.won = boardState.turn
+        }
+
         newTurn = boardState.turn === 1 ? -1 : 1
 
-        const won = whoWonGame(newBoard, arX, arY)
-
-        return { board: newBoard, turn: newTurn, won }
+        return { board: newBoard, turn: newTurn, result: newResult }
     }
     return boardState
 }
 
 function whoWonGame(newBoard, arX, arY) {
+    let sumX = 0
+    let sumY = 0
+    let sumD1 = 0
+    let sumD2 = 0
+    let result = null;
+    for (let i = 0; i < BOARD_SIZE; i++) {
+        sumY += newBoard[arY][i]
+        sumX += newBoard[i][arX]
+        
+        if (arX === arY) {
+            sumD1 += newBoard[i][i]
+        }
 
+        if (arX === BOARD_SIZE - arY) {
+            sumD2 += newBoard[i][BOARD_SIZE-i]
+        }
+    }
 
+    if (Math.abs(sumX) === BOARD_SIZE) {
+        result = { X: arX}
+    } else if (Math.abs(sumY) === BOARD_SIZE) {
+        result = { Y: arY}
+    } else if (Math.abs(sumD1) === BOARD_SIZE) {
+        result = { D1: 1}
+    } else if (Math.abs(sumD2) === BOARD_SIZE) {
+        result = { D2: 1}
+    }
 
+    return result
 }

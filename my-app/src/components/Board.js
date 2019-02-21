@@ -22,6 +22,21 @@ class Board extends Component {
 
         this.drawBar(ctx)
         this.fillMoves(ctx)
+        if (this.props.result) {
+            this.drawWinLine(this.props.result, ctx)
+        }
+    }
+
+    drawWinLine(result, ctx) {
+
+        ctx.strokeStyle = "#00FF00"
+        ctx.lineWidth = 2
+        let cellWidth = BOARD_WIDTH / BOARD_SIZE
+
+        if (result.X !== undefined) {
+            let x = cellWidth * (result.X + 0.5)
+            this.drawLine(x, 0, x, BOARD_WIDTH, ctx)
+        }
     }
 
     drawBar(ctx) {
@@ -76,7 +91,7 @@ class Board extends Component {
 }
 
 export const BoardDec = connect((state) => {
-        return { board: state.boardState.board }
+        return { board: state.boardState.board, result: state.boardState.result }
     },
     { makeMove: moveAC }
 )(Board)

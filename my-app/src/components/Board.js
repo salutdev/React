@@ -30,13 +30,13 @@ class Board extends Component {
     drawWinLine(result, ctx) {
 
         ctx.strokeStyle = "#00FF00"
-        ctx.lineWidth = 2
-        let cellWidth = BOARD_WIDTH / BOARD_SIZE
-
+        ctx.lineWidth = 5
+  
         if (result.X !== undefined) {
-            let x = cellWidth * (result.X + 0.5)
+            let x = this.getCellWidth() * (result.X + 0.5)
             this.drawLine(x, 0, x, BOARD_WIDTH, ctx)
         }
+        console.log("Draw win line")
     }
 
     drawBar(ctx) {
@@ -50,6 +50,8 @@ class Board extends Component {
             this.drawLine(i, 0, i, BOARD_WIDTH, ctx)
             this.drawLine(0, i, BOARD_WIDTH, i, ctx)
         }
+
+        console.log("Draw bars")
     }
 
     getCellWidth() {
@@ -57,6 +59,7 @@ class Board extends Component {
     }
 
     drawLine(x1, y1 , x2, y2, ctx) {
+        ctx.beginPath()
         ctx.moveTo(x1, y1)
         ctx.lineTo(x2, y2)
         ctx.stroke()

@@ -31,7 +31,7 @@ function getNewBoardState(boardState, payload) {
 
         const newResult = whoWonGame(newBoard, arX, arY)
         if (newResult) {
-            newResult.won = boardState.turn
+            newResult.winner = boardState.turn
         }
 
         newTurn = boardState.turn === 1 ? -1 : 1
@@ -55,8 +55,8 @@ function whoWonGame(newBoard, arX, arY) {
             sumD1 += newBoard[i][i]
         }
 
-        if (arX === BOARD_SIZE - arY) {
-            sumD2 += newBoard[i][BOARD_SIZE-i]
+        if (arX === BOARD_SIZE - arY - 1) {
+            sumD2 += newBoard[i][BOARD_SIZE-i-1]
         }
     }
 

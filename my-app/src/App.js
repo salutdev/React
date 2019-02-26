@@ -6,6 +6,7 @@ import Counter from './components/Counter'
 import { Provider } from 'react-redux'
 import { BoardDec as Board } from './components/Board'
 import Turn from './components/Turn'
+import Result from './components/result'
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         <div className="App">
           <Board></Board>
           <Turn></Turn>
+          <Result></Result>
           <Counter />
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />

@@ -1,3 +1,11 @@
 .board {
     border: 0px solid blue;
 }
+
+.visible {
+    display: block;
+}
+
+.invisible {
+    display: none;
+}

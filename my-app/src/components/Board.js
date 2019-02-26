@@ -35,7 +35,14 @@ class Board extends Component {
         if (result.X !== undefined) {
             let x = this.getCellWidth() * (result.X + 0.5)
             this.drawLine(x, 0, x, BOARD_WIDTH, ctx)
-        }
+        } else if (result.Y !== undefined) {
+            let y = this.getCellWidth() * (result.Y + 0.5)
+            this.drawLine(0, y, BOARD_WIDTH, y, ctx)
+        } else if (result.D1 !== undefined) {
+             this.drawLine(0, 0, BOARD_WIDTH, BOARD_WIDTH, ctx)
+        } else if (result.D2 !== undefined) {
+            this.drawLine(0, BOARD_WIDTH, BOARD_WIDTH, 0, ctx)
+       }
         console.log("Draw win line")
     }
 
@@ -82,7 +89,9 @@ class Board extends Component {
     }
 
     handleClick = (evt) => {
-        this.props.makeMove(evt.nativeEvent.layerX, evt.nativeEvent.layerY)
+        if (!this.props.result) {
+            this.props.makeMove(evt.nativeEvent.layerX, evt.nativeEvent.layerY)
+        }
     }
 
     render() {
